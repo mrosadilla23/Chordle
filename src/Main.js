@@ -47,8 +47,36 @@ const handleCopyScore = () => {
     scoreGrid.push(row);
     scoreString += row.join(" ") + "\n";
   }
-  console.log(scoreString, pastGuesses, chord);
-  navigator.clipboard.writeText(scoreString);
+  function copyToClipboard(textToCopy) {
+    // navigator clipboard api needs a secure context (https)
+    if (false) {
+        // navigator clipboard api method'
+        return navigator.clipboard.writeText(textToCopy);
+    } else {
+        // text area method
+        let textArea = document.createElement("textarea");
+        textArea.value = textToCopy;
+        // make the textarea out of viewport
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        return new Promise((res, rej) => {
+            // here the magic happens
+            document.execCommand('copy') ? res() : rej();
+            textArea.remove();
+        });
+    }
+}
+copyToClipboard(scoreString).then(() => {
+  console.log("copied");
+}
+).catch((err) => {
+  console.log(err);
+})
+
 }
 
 
