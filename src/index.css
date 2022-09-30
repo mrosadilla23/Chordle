@@ -1,4 +1,5 @@
 body {
+  background-color: black;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +11,175 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.header{
+  color: white;
+  font-size: 2em;
+  width: 100vw;
+  height: 70px;
+  padding: 10px;
+  border-bottom: 2px solid white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.keyboard {
+  user-select: none;
+  top: 0;
+  left: 0;
+  min-width: 600px;
+  width: 100%;
+  max-width: 780px;
+  height: 300px;
+
+  color: #fff;
+  font-size: 1.2em;
+  text-align: center;
+  line-height: 1.5;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: #444 3px solid;
+  padding: 10px;
+  margin-bottom: 15px;
+
+}
+
+.white {
+  position: relative;
+  background-color: #fff;
+  color: none;
+  border: #000 3px solid;
+  width: 22%;
+}
+
+.black {
+  font-size: 0;
+  position: relative;
+  background-color: #000;
+  color: none;
+  z-index: 2;
+  width: 8%;
+  height: 60%;
+  margin-left: -20px;
+  margin-right: -20px;
+  justify-self: center;
+
+}
+
+.null {
+  display: none;
+}
+
+.key.pressed {
+  font-size: 0;
+  background-color: grey;
+  color: none;
+}
+.input-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 300px;
+  width: 100%;
+  max-width: 400px;
+  height: 60%;
+}
+.tile-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 8vh;
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 25%;
+  height: 75%;
+  border: #444 3px solid;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 2em;
+  text-align: center;
+  margin: 0 5px;
+
+}
+.correct {
+  background-color: green;
+}
+.incorrect {
+  background-color: yellow;
+  color: #444;
+}
+.grey-out {
+  background-color: grey;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  opacity: 0.5;
+
+}
+.game-over {
+  position: absolute;
+  background-color: black;
+  top: auto;
+  left:  auto;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1000;
+  width: 60vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: white;
+  opacity: 1;
+  border-radius: 5px;
+}
+button {
+  background-color: #444;
+  color: #fff;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  width: 150px;
+}
+button:hover {
+  background-color: #fff;
+  color: #444;
+
+}
+.button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  min-width: 600px;
+  width: 100%;
+  max-width: 780px;
+  height: 80px;
+  margin-top: 10px;
 }
