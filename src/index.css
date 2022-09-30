@@ -183,3 +183,23 @@ button:hover {
   height: 80px;
   margin-top: 10px;
 }
+.pulse {
+  animation-name: stretch;
+  animation-duration: 0.35s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+@keyframes stretch {
+  0% {
+      transform: scale(1);
+      font-size: 2em;
+  }
+
+  100% {
+      transform: scale(1.04);
+      font-size: 2em;
+  }
+}

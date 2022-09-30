@@ -28,6 +28,29 @@ let play = (note) => {
   console.log(synth);
   synth.triggerAttackRelease(note, "8n");
 }
+const handleCopyScore = () => {
+  let score = win? pastGuesses.length: 'X'
+  let scoreGrid = [];
+  let scoreString = "Your score is " + score + " out of 6. \n";
+  for (let i = 0; i < pastGuesses.length; i++) {
+    let row = [];
+    pastGuesses[i].forEach((note, ind) => {
+      if (note === chord[ind]) {
+        row.push("🟩");
+      } else if(chord.includes(note)) {
+        row.push("🟨");
+      } else {
+        row.push("⬛️");
+      }
+    }
+    )
+    scoreGrid.push(row);
+    scoreString += row.join(" ") + "\n";
+  }
+  console.log(scoreString, pastGuesses, chord);
+  navigator.clipboard.writeText(scoreString);
+}
+
 
   return (
 
@@ -39,7 +62,7 @@ let play = (note) => {
          <div className="grey-out">
 
           </div>
-          <div className="game-over">
+          <div className="game-over" onClick={handleCopyScore}>
           <h1>Game Over</h1>
           <h2>{win ? "You Win!" : "You Lose!"}</h2>
           <button onClick={() => {
