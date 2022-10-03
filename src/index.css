@@ -23,11 +23,13 @@ code {
   overflow: hidden;
 }
 .header{
+  margin-top: 3vh;
   color: white;
-  font-size: 2em;
+  font-size: 1.5em;
   width: 100vw;
+  min-height: auto;
   height: 70px;
-  padding: 10px;
+  padding-bottom: 3px;
   border-bottom: 2px solid white;
   display: flex;
   flex-direction: row;
@@ -42,6 +44,7 @@ code {
   width: 100%;
   max-width: 780px;
   height: 300px;
+  min-height: 20vh;
 
   color: #fff;
   font-size: 1.2em;
@@ -55,6 +58,18 @@ code {
   padding: 10px;
   margin-bottom: 15px;
 
+}
+@media only screen and (max-width: 600px) {
+  .keyboard {
+    transform: scale(.8);
+    height: 30vh;
+  }
+}
+@media only screen and (max-width: 490px) {
+  .keyboard {
+    transform: scale(.6);
+    height: 30vh;
+  }
 }
 
 .white {
@@ -92,8 +107,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 300px;
-  width: 100%;
+  width: 75%;
   max-width: 400px;
   height: 60%;
 }
@@ -158,14 +172,14 @@ code {
 button {
   background-color: #444;
   color: #fff;
-  font-size: 1.5em;
+  font-size: 20%;
   border: none;
   border-radius: 5px;
   padding: 10px;
   margin-top: 15px;
   margin-bottom: 15px;
   cursor: pointer;
-  width: 150px;
+  width: 15vw;
 }
 button:hover {
   background-color: #fff;
@@ -176,8 +190,6 @@ button:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 100%;
-  min-width: 600px;
   width: 100%;
   max-width: 780px;
   height: 80px;
