@@ -18,6 +18,7 @@ const Main = () => {
     release: 3,
     baseUrl: "https://tonejs.github.io/audio/salamander/",
   }).toDestination();
+  const [isCopied, setIsCopied] = useState(false);
   const [win, setWin] = useState(false);
   const [gameOver, setGameOver] = useState(false)
   const [pastGuesses , setPastGuesses] = useState([])
@@ -72,6 +73,7 @@ const handleCopyScore = () => {
 }
 copyToClipboard(scoreString).then(() => {
   console.log("copied");
+  setIsCopied(true);
 }
 ).catch((err) => {
   console.log(err);
@@ -90,7 +92,7 @@ copyToClipboard(scoreString).then(() => {
          <div className="grey-out">
 
           </div>
-          <div className="game-over" onClick={handleCopyScore}>
+          <div className="game-over">
           <h1>Game Over</h1>
           <h2>{win ? "You Win!" : "You Lose!"}</h2>
           <button onClick={() => {
@@ -101,7 +103,12 @@ copyToClipboard(scoreString).then(() => {
             setWin(false);
             setCurrentGuessIndex(0);
             setChord(chords[ Math.floor(Math.random() * chords.length) ]);
+            setIsCopied(false);
           }}>Play Again</button>
+          <button onClick={handleCopyScore}>Copy Score</button>
+          <p className={`copied ${
+            isCopied ? "copied-show" : ""
+          }`} >Score copied to your clipboard!</p>
         </div>
         </>
 
@@ -152,3 +159,4 @@ copyToClipboard(scoreString).then(() => {
   );
 }
 export default Main;
+

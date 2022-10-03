@@ -154,25 +154,29 @@ code {
   position: absolute;
   background-color: black;
   top: auto;
-  left:  auto;
+  left: auto;
+  min-width: 300px;
+  min-height: 300px;
+  font-size: 100%;
   margin-left: auto;
   margin-right: auto;
   z-index: 1000;
-  width: 60vw;
-  height: 60vh;
+  width: 80vw;
+  height: 80vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
   color: white;
   opacity: 1;
   border-radius: 5px;
+  max-width: 480px;
+  max-height: 480px;
 }
 button {
   background-color: #444;
   color: #fff;
-  font-size: 20%;
+  font-size: minmax(10px, 2vh);
   border: none;
   border-radius: 5px;
   padding: 10px;
@@ -180,11 +184,14 @@ button {
   margin-bottom: 15px;
   cursor: pointer;
   width: 15vw;
+  min-width: fit-content;
 }
-button:hover {
+button:active {
   background-color: #fff;
   color: #444;
-
+}
+.button:hover {
+  transform: scale(1.1);
 }
 .button-row {
   display: flex;
@@ -214,4 +221,10 @@ button:hover {
       transform: scale(1.04);
       font-size: 2em;
   }
+}
+.copied {
+  color: transparent;
+}
+.copied-show {
+  color:white;
 }
